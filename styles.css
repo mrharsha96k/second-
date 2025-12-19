@@ -1,0 +1,188 @@
+body {
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* MAIN CONTAINER */
+.jarvis-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jarvis-wrapper {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CORE */
+.jarvis-core {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #00eaff 25%, #0088aa 100%);
+    box-shadow: 0 0 40px #00eaff;
+    overflow: hidden;
+    z-index: 2;
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* OUTER RING */
+.jarvis-ring {
+    width: 220px;
+    height: 220px;
+    border: 3px solid #00eaff;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 0 25px #00eaff;
+    animation: rotate 6s linear infinite;
+}
+
+/* TITLE */
+.jarvis-title {
+    margin-top: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* SCAN LINE */
+.scan-line {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.6);
+    filter: blur(10px);
+    border-radius: 50%;
+    animation: scan 2.8s linear infinite;
+}
+
+/* SCAN ANIMATION */
+@keyframes scan {
+    0% { top: -50%; opacity: 0; }
+    40% { top: 15%; opacity: 1; }
+    100% { top: 110%; opacity: 0; }
+}
+
+/* CORE PULSE ANIMATION */
+@keyframes pulse {
+    0%   { box-shadow: 0 0 20px #00eaff; }
+    50%  { box-shadow: 0 0 60px #00eaff; }
+    100% { box-shadow: 0 0 20px #00eaff; }
+}
+
+/* RING ROTATION */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* CONTROLS */
+.jarvis-controls {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e6fff9;
+    cursor: pointer;
+}
+
+.small {
+    color: #b8eaf0;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.transcript {
+    width: 100%;
+    text-align: center;
+    color: #aee8e0;
+    margin-top: 8px;
+    font-family: monospace;
+}
+
+/* LISTENING GLOW EFFECT */
+.listening {
+    animation: listenPulse 1s infinite;
+}
+
+@keyframes listenPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+    100% { transform: scale(1); }
+}
+
+/* TEXT BOX */
+#jarvisTextBox {
+    width: 300px;
+    padding: 15px;
+    margin-top: 20px;
+    color: cyan;
+    font-family: "Consolas", monospace;
+    font-size: 16px;
+    border-left: 2px solid cyan;
+    border-right: 2px solid cyan;
+    background: rgba(0, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    text-shadow: 0 0 10px cyan;
+}
+
+/* WAVEFORM */
+.waveform {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 15px;
+    height: 30px;
+}
+
+.waveform span {
+    width: 4px;
+    height: 10px;
+    background: cyan;
+    display: block;
+    border-radius: 20px;
+    opacity: 0.4;
+    animation: wave 1s infinite ease-in-out;
+}
+
+.waveform span:nth-child(1) { animation-delay: 0s; }
+.waveform span:nth-child(2) { animation-delay: 0.1s; }
+.waveform span:nth-child(3) { animation-delay: 0.2s; }
+.waveform span:nth-child(4) { animation-delay: 0.3s; }
+.waveform span:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes wave {
+    0% { height: 10px; opacity: 0.3; }
+    50% { height: 30px; opacity: 1; }
+    100% { height: 10px; opacity: 0.3; }
+}
+
+/* Waveform hidden by default */
+.waveform.hidden {
+    display: none;
+}

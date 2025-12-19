@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>JARVIS UI</title>
+</head>
+
+<body>
+
+    <!-- Main Jarvis Container -->
+    <div class="jarvis-container">
+        <div class="jarvis-wrapper">
+            
+            <!-- Jarvis Core Circle -->
+            <div class="jarvis-core">
+                <div class="scan-line"></div>
+            </div>
+
+            <!-- Outer Ring -->
+            <div class="jarvis-ring"></div>
+        </div>
+
+        <h2 class="jarvis-title">JARVIS SYSTEM</h2>
+    </div>
+
+    <!-- Text Box Output -->
+    <div id="jarvisTextBox"></div>
+
+    <!-- Controls -->
+    <div class="jarvis-controls">
+        <button id="start-listen" class="btn">Start Listening</button>
+        <button id="stop-listen" class="btn">Stop</button>
+        <button id="speak-greet" class="btn">Speak Greeting</button>
+
+        <label class="small">Rate
+            <input id="rate" type="range" min="0.6" max="1.8" step="0.1" value="1">
+        </label>
+
+        <label class="small">Pitch
+            <input id="pitch" type="range" min="0.6" max="2" step="0.1" value="1">
+        </label>
+
+        <div id="transcript" class="transcript">
+            Transcript: <span id="txt">—</span>
+        </div>
+    </div>
+
+    <!-- Waveform Animation -->
+    <div class="waveform">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- JS File -->
+    <script src="main.js"></script>
+
+</body>
+</html>
